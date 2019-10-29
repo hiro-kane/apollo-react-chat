@@ -1,0 +1,42 @@
+version: '3.3'
+services:
+  react:
+    build:
+      context: .
+      dockerfile: dockerfile-react
+    # image: node:10.15
+    container_name: react_node
+    # volumes:
+    #   - ./client:/opt/react
+    working_dir: /opt
+    ports:
+      - '3000:3000'
+
+    command: sh -c "cd /opt/react && npm start"
+    tty: true
+
+  apollo:
+    build:
+      context: .
+      dockerfile: dockerfile-apollo
+    # image: node:10.15
+    container_name: apollo_node
+    # volumes:
+    #   - ./server:/opt/apollo
+    working_dir: /opt
+    ports:
+      - '4000:4000'
+
+    command: sh -c "cd /opt/apollo && node index.js"
+    tty: true
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql_node
+    environment:
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - '3306:3306'
