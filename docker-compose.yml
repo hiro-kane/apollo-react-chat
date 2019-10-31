@@ -29,7 +29,7 @@ services:
       - '4000:4000'
     depends_on:
       - mysql
-    command: sh -c "cd /opt/apollo && node index.js"
+    command: sh -c "entrypoint.sh && cd /opt/apollo && node index.js"
     tty: true
 
   mysql:

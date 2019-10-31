@@ -1,5 +1,6 @@
 FROM node:10.15
 
+RUN apt update && apt install -y mysql-client
 COPY ./server /opt/apollo
 WORKDIR /opt/apollo
 RUN npm install
