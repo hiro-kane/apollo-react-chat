@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
-// DB設定読み込み
 const sequelize = require('../conf/db');
 
 const db = {

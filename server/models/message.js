@@ -1,43 +1,21 @@
 // sequelize: model
 
 module.exports = (sequelize, Sequelize) => {
-  const Books = sequelize.define(
-    'books',
+  const Messages = sequelize.define(
+    'messages',
     {
-      // attributes
-      title: {
+      name: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      author: {
-        type: Sequelize.STRING
-        // allowNull defaults to true
+      text: {
+        type: Sequelize.STRING,
+        allowNull: false
       }
     },
     {
       // options
     }
   );
-  return Books;
+  return Messages;
 };
-
-// const message = sequelize.define(
-//   'message',
-//   {
-//     id: {
-//       type: Sequelize.INTEGER,
-//       allowNull: false
-//     },
-//     name: {
-//       type: Sequelize.STRING,
-//       allowNull: false
-//     },
-//     message: {
-//       type: Sequelize.STRING,
-//       allowNull: false
-//     }
-//   },
-//   {
-//     // options
-//   }
-// );
