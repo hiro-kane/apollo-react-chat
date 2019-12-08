@@ -11,6 +11,7 @@ const typeDefs = gql`
 
   type Query {
     messages: [Message]
+    recentMessages: [Message]
   }
 
   type Mutation {

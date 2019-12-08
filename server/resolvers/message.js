@@ -10,8 +10,12 @@ const MESSAGE_ADDED = 'MESSAGE_ADDED';
 const messageResolver = {
   Query: {
     messages: () => {
-      // ORMで取得したデータをDBとして利用する
       return Messages.findAll().then(messages => {
+        return messages;
+      });
+    },
+    recentMessages: () => {
+      return Messages.findAll({ order: [['id', 'DESC']] }).then(messages => {
         console.log(JSON.stringify(messages, null, 4));
         return messages;
       });
